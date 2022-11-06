@@ -1,7 +1,6 @@
 #include "include/heap.h"
 #include <string.h>
 #include <stdlib.h>
-#include "gtest/gtest.h"
 
 int main(int argc, char **argv)
 {
@@ -17,4 +16,7 @@ int main(int argc, char **argv)
   }
 
   InitHeap(heap, initedChunk);
+
+  printf("inited chunk = ptr[%lu]\n", (uint64_t)initedChunk);
+  PrintLists(heap);
 }

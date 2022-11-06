@@ -40,7 +40,7 @@ void AddNode(List *list, Node *node)
 void RemoveNode(List *list, Node *node)
 {}
 
-Node *GetBestFit(List *list, size_t size)
+Node *GetBestFit(List *list, uint32_t size)
 {
   assert(list != NULL);
   if (list->head == NULL) {
@@ -55,4 +55,15 @@ Node *GetBestFit(List *list, size_t size)
     node = node->next;
   }
   return NULL;
+}
+
+void PrintList(List *list)
+{
+  printf("In this list: ");
+  Node *node = list->head;
+  while (node != NULL) {
+    printf("[ptr:%lu][size:%u][totSize:%u][used:%u]", (uint64_t)node, node->size, node->size + OVERHEAD, node->used);
+    node = node->next;
+  }
+  printf("\n");
 }

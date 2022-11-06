@@ -1,5 +1,5 @@
 gcc-test:
-	gcc -O3 list.c heap.c main.c -o heap_test -I /usr/include/c++/8
+	gcc -O3 list.c heap.c main.c -o heap_test
 	./heap_test
 
 clean:
