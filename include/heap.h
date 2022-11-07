@@ -35,10 +35,11 @@ typedef struct Footer {
 static uint32_t OVERHEAD = sizeof(Node) + sizeof(Footer);
 
 void InitHeap(Heap *heap, void *p);
-void *HeapMalloc(Heap *heap, uint32_t size);
+void *HeapAlloc(Heap *heap, uint32_t size);
 void *HeapFree(Heap *heap, void *p);
 
 void InitFooter(Node *node);
+Footer *GetFooter(Node *node);
 uint32_t GetListsIdx(uint32_t size);
 void PrintLists(Heap *heap);
 

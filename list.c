@@ -38,7 +38,35 @@ void AddNode(List *list, Node *node)
   }
 }
 void RemoveNode(List *list, Node *node)
-{}
+{
+  assert(list->head != NULL);
+  assert(node != NULL);
+  if (list->head == node) {
+    list->head = node->next;
+    node->next = NULL;
+    node->prev = NULL;
+    return;
+  }
+
+  {
+    // Just check correctness. Remove this latter.
+    Node *cur = list->head->next;
+    while (cur != NULL && cur != node) {
+      cur = cur->next;
+    }
+    assert(cur != NULL);
+  }
+
+  if (node->next == NULL) {
+    node->prev->next = node->next;
+  } else {
+    node->prev->next = node->next;
+    node->next->prev = node->prev;
+  }
+  node->next = NULL;
+  node->prev = NULL;
+  return;
+}
 
 Node *GetBestFit(List *list, uint32_t size)
 {
